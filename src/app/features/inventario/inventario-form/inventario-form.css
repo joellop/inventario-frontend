@@ -1,0 +1,9 @@
+.mensaje-error {
+  color: #b3261e;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+button mat-spinner {
+  display: inline-block;
+}

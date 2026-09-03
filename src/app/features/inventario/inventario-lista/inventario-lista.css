@@ -1,0 +1,146 @@
+:host {
+  display: block;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/*========ENCABEZADO=======*/
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.encabezado h1 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/*========TABLA=======*/
+::ng-deep tr.vencido {
+  background-color: #fdecea; /* rojo suave */
+}
+
+::ng-deep tr.vencido:hover {
+  background-color: #fbd9d5;
+}
+
+::ng-deep tr.por-vencer {
+  background-color: #fff8e1; /* amarillo suave */
+}
+
+::ng-deep tr.por-vencer:hover {
+  background-color: #ffefc2;
+}
+
+table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+::ng-deep .mat-mdc-header-row {
+  background-color: #f5f5f5;
+}
+
+::ng-deep .mat-mdc-header-cell {
+  font-weight: 600;
+  font-size: 13px;
+  color: #555;
+}
+
+::ng-deep .mat-mdc-row:hover {
+  background-color: #fafafa;
+  cursor: default;
+}
+
+::ng-deep .mat-mdc-cell,
+::ng-deep .mat-mdc-header-cell {
+  padding: 12px 16px;
+}
+
+/*========BANNER=======*/
+.alertas-caducidad {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.alerta {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.alerta-vencido {
+  background-color: #fdecea;
+  color: #b3261e;
+}
+
+.alerta-por-vencer {
+  background-color: #fff8e1;
+  color: #8a6d00;
+}
+
+.alerta mat-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+}
+
+.alerta .ver-mas {
+  margin-left: auto;
+  font-weight: 600;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.alerta-vencido.activo {
+  background-color: #f8c9c3;
+}
+
+.alerta-por-vencer.activo {
+  background-color: #ffe9a8;
+}
+/*========SPINNER=======*/
+.contenedor-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+/*========RESPONSIVE=======*/
+@media (max-width: 599px) {
+  :host {
+    padding: 12px;
+  }
+
+  .encabezado {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .encabezado button {
+    width: 100%;
+  }
+
+  .campo-busqueda {
+    width: 100%;
+  }
+
+  table {
+    font-size: 13px;
+  }
+}
