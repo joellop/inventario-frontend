@@ -59,7 +59,7 @@ export class InventarioLista {
   );
   articulos = this.inventarioService.lista;
 
-  paginator = viewChild.required(MatPaginator);
+  paginator = viewChild(MatPaginator);
   dataSource = new MatTableDataSource<Articulo>([]);
 
   columnas = computed(() =>
