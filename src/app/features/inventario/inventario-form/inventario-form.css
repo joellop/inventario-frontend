@@ -7,3 +7,35 @@
 button mat-spinner {
   display: inline-block;
 }
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 70vh;
+}
+
+.campo-completo,
+mat-form-field {
+  width: 100%;
+}
+
+.fila-doble {
+  display: flex;
+  gap: 12px;
+}
+
+.fila-doble mat-form-field {
+  flex: 1;
+}
+
+@media (max-width: 599px) {
+  .fila-doble {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  mat-dialog-content {
+    max-height: 65vh;
+  }
+}

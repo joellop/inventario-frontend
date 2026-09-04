@@ -38,28 +38,47 @@
 
 table {
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
+}
+
+::ng-deep .mat-mdc-table .mat-mdc-header-row,
+::ng-deep .mat-mdc-table th.mat-mdc-header-cell {
+  background-color: #147676 !important;
+}
+
+::ng-deep .mat-mdc-header-cell {
+  font-weight: 600;
+  font-size: 13px;
+  color: #ffffff !important;
+  border-bottom: 2px solid #0d5555 !important;
 }
 
 ::ng-deep .mat-mdc-header-row {
   background-color: #f5f5f5;
 }
 
+::ng-deep .mat-mdc-cell,
 ::ng-deep .mat-mdc-header-cell {
-  font-weight: 600;
-  font-size: 13px;
-  color: #555;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eeeeee !important;
+}
+
+::ng-deep .mat-mdc-row:last-child .mat-mdc-cell {
+  border-bottom: none !important;
 }
 
 ::ng-deep .mat-mdc-row:hover {
   background-color: #fafafa;
-  cursor: default;
 }
 
-::ng-deep .mat-mdc-cell,
-::ng-deep .mat-mdc-header-cell {
-  padding: 12px 16px;
+/* Bordes verticales sutiles entre columnas */
+::ng-deep .mat-mdc-cell:not(:last-child),
+::ng-deep .mat-mdc-header-cell:not(:last-child) {
+  border-right: 1px solid #f0f0f0;
 }
 
 /*========BANNER=======*/
