@@ -19,7 +19,7 @@
   margin: 0;
 }
 
-/*========TABLA=======*/
+/*========TABLA/ESTADOS=======*/
 ::ng-deep tr.vencido {
   background-color: #fdecea; /* rojo suave */
 }
@@ -36,6 +36,7 @@
   background-color: #ffefc2;
 }
 
+/*========TABLA/GENERAL=======*/
 table {
   width: 100%;
   border-collapse: separate;
@@ -45,6 +46,7 @@ table {
   overflow: hidden;
 }
 
+/*========TABLA/DISEÑOS=======*/
 ::ng-deep .mat-mdc-table .mat-mdc-header-row,
 ::ng-deep .mat-mdc-table th.mat-mdc-header-cell {
   background-color: #147676 !important;
