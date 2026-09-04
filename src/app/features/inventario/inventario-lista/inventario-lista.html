@@ -1,10 +1,14 @@
 <div class="encabezado">
   <h1>Mi inventario</h1>
+  @if (!cargando()) {
   <button mat-flat-button color="primary" (click)="abrirFormulario()">
     <mat-icon>add</mat-icon> Agregar artículo
   </button>
+  }
 </div>
 
+@if (!cargando())
+{
 @if (articulosVencidos().length || articulosPorVencer().length) {
 <div class="alertas-caducidad">
   @if (articulosVencidos().length) {
@@ -30,13 +34,16 @@
   }
 </div>
 }
+}
 
+@if (!cargando())
+{
 <mat-form-field appearance="outline" class="campo-busqueda">
   <mat-label>Buscar artículo</mat-label>
   <input matInput (keyup)="aplicarFiltro($event)" placeholder="Ej. Licuadora, Cocina...">
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
-
+}
 @if (cargando()) {
 <div class="contenedor-spinner">
   <mat-spinner diameter="40"></mat-spinner>
@@ -86,5 +93,5 @@
   <tr mat-row *matRowDef="let row; columns: columnas();" [ngClass]="obtenerEstadoCaducidad(row)"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
 }

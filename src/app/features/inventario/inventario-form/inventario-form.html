@@ -20,16 +20,25 @@
     <mat-form-field appearance="outline">
       <mat-label>Cantidad</mat-label>
       <input matInput type="number" formControlName="cantidad">
+      @if (form.get('cantidad')?.hasError('min')) {
+      <mat-error>La cantidad no puede ser negativa</mat-error>
+      }
+      @if (form.get('cantidad')?.hasError('required')) {
+      <mat-error>La cantidad es obligatoria</mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Valor estimado</mat-label>
       <input matInput type="number" formControlName="valorEstimado">
+      @if (form.get('valorEstimado')?.hasError('min')) {
+      <mat-error>El valor no puede ser negativo</mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="campo-completo">
       <mat-label>Fecha de caducidad</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="fechaCaducidad">
+      <input matInput [matDatepicker]="picker" formControlName="fechaCaducidad" [min]="fechaMinima" [max]="fechaMaxima">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

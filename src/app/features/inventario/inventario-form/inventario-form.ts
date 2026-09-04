@@ -35,12 +35,15 @@ export class InventarioForm {
   guardando = signal(false);
   error = signal<string | null>(null);
 
+  fechaMinima = new Date(new Date().getFullYear() - 5, 0, 1);
+  fechaMaxima = new Date(new Date().getFullYear() + 20, 11, 31);
+
   form = this.fb.group({
     nombre: [this.data?.nombre ?? '', Validators.required],
     categoria: [this.data?.categoria ?? '', Validators.required],
     ubicacion: [this.data?.ubicacion ?? '', Validators.required],
     cantidad: [this.data?.cantidad ?? 1, [Validators.required, Validators.min(1)]],
-    valorEstimado: [this.data?.valorEstimado ?? null],
+    valorEstimado: [this.data?.valorEstimado ?? null, [Validators.min(0)]],
     fechaCaducidad: [this.data?.fechaCaducidad ?? null],
     notas: [this.data?.notas ?? ''],
   });

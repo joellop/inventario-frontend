@@ -43,7 +43,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './inventario-lista.css',
   templateUrl: './inventario-lista.html',
 })
-export class InventarioLista implements AfterViewInit {
+export class InventarioLista {
   private breakpointObserver = inject(BreakpointObserver);
   private inventarioService = inject(Inventario);
   private dialog = inject(MatDialog);
@@ -85,15 +85,22 @@ export class InventarioLista implements AfterViewInit {
       this.dataSource.data = this.articulosFiltradosPorEstado();
     });
 
+    effect(() => {
+      const paginador = this.paginator();
+      if (paginador) {
+        this.dataSource.paginator = paginador;
+      }
+    });
+
     this.dataSource.filterPredicate = (articulo: Articulo, filtro: string) => {
       const texto = `${articulo.nombre} ${articulo.categoria} ${articulo.ubicacion}`.toLowerCase();
       return texto.includes(filtro);
     };
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator();
-  }
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.paginator();
+  // }
 
   aplicarFiltro(evento: Event) {
     const valor = (evento.target as HTMLInputElement).value;
